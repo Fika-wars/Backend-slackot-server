@@ -1,11 +1,16 @@
 //in milliseconds
 var refreshRate = 5000;
-var hostURL = "http://localhost:3000";
+var hostURL = "http://10.0.0.81:3000";
 
 function buttonPress() {
     var response = $.ajax({
-        type: 'GET',
-        url: 'http://localhost:3000/highscore'
+        type: 'POST',
+        url: hostURL,
+        data: {
+            "operator": "userUpdate",
+            "userName": "playerJ",
+            "region": "A"
+        }
     });
 
     console.log(response);
@@ -21,9 +26,14 @@ function post(operator) {
     });
 }
 
-function updateDOM(value) {
-    console.log(value.highscore.playerA);
-    $('#player01').text(value.highscore.playerA);
+function updateHighscore(data) {
+    $.each(data, function(val) {
+        $('#'+val).text(val + ": " + data[val]);
+    });
+}
+
+function updateDOM(data) {
+    updateHighscore(data);
 }
 
 function postHandler(data) {
@@ -31,9 +41,7 @@ function postHandler(data) {
 }
 
 function main() {
-    console.log("now in main");
-
-    postHandler("update");
+    postHandler("refresh");
 
     //timer = 0;
     timer = setTimeout(main, refreshRate);
