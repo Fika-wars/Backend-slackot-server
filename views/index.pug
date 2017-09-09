@@ -1,7 +1,21 @@
-extends layout
+head
+  script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+  script(type='text/javascript', src='/javascripts/index.js')
 
 block content
   h1= title
   p Highscore
-  ul highscoreList
-    li "playerA:" #{playerPoint}
+  ul(id=highscoreList)
+    li
+      p(id="player01") playerA: #{playerPoint}
+      p(id="player02") playerA: #{playerPoint}
+      p(id="player03") playerA: #{playerPoint}
+      p(id="player04") playerA: #{playerPoint}
+      p(id="player05") playerA: #{playerPoint}
+      p(id="player06") playerA: #{playerPoint}
+      p(id="player07") playerA: #{playerPoint}
+      p(id="player08") playerA: #{playerPoint}
+      p(id="player09") playerA: #{playerPoint}
+      p(id="player10") playerA: #{playerPoint}
+
+  button(onclick="buttonPress()")
