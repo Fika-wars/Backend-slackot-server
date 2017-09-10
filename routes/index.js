@@ -1,18 +1,89 @@
 var express = require('express');
 var router = express.Router();
 
-var userScores = {
-    "playerA": 60,
-    "playerB": 46,
-    "playerC": 32,
-    "playerD": 20,
-    "playerE": 20,
-    "playerF": 17,
-    "playerG": 10,
-    "playerH": 0,
-    "playerI": 0,
-    "playerJ": 0
-};
+var userScores = [
+    {
+        "ID": "playerA",
+        "name": "Fabian",
+        "score": 60,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'A'
+    },
+    {
+        "ID": "playerB",
+        "name": "Erik",
+        "score": 42,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'A'
+    },
+    {
+        "ID": "playerC",
+        "name": "Alexander",
+        "score": 35,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'A'
+    },
+    {
+        "ID": "playerD",
+        "name": "Charlie",
+        "score": 24,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'B'
+    },
+    {
+        "ID": "playerE",
+        "name": "playerE",
+        "score": 18,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'B'
+    },
+    {
+        "ID": "playerF",
+        "name": "playerF",
+        "score": 7,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'B'
+    },
+    {
+        "ID": "playerG",
+        "name": "playerG",
+        "score": 0,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'B'
+    },
+    {
+        "ID": "playerH",
+        "name": "playerH",
+        "score": 0,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'C'
+    },
+    {
+        "ID": "playerI",
+        "name": "playerI",
+        "score": 0,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'C'
+    },
+    {
+        "ID": "playerJ",
+        "name": "playerJ",
+        "score": 0,
+        "location": 'Z',
+        "locationTime": 0,
+        "teamID": 'C'
+    }];
+
+
 
 /* GET home page. */
 //router.get('/', function(req, res, next) {
@@ -23,11 +94,6 @@ var userScores = {
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Highscore' });
     res.end();
-});
-
-router.get('/highscore', function(req, res, next) {
-  res.render('index', { playerPoint: 5});
-  res.end();
 });
 
 //Handles POST-requests
@@ -52,18 +118,34 @@ module.exports = router;
 /////////LOGICS/////////
 ////////////////////////
 
-
-
 function userInRegion(name, region) {
-  //Multiplier logic here for more users at same spot or similar
-  //updateScore(update.);
-  demoFunc(name, region);
+    //Multiplier logic here for more users at same spot or similar
+    //updateScore(update.);
+    console.log(name + " " + region);
+    for (var i = 0; i < userScores.length; i++) {
+        console.log("hej");
+        console.log(userScores[i].name + " huh " + name);
+        if (userScores[i].ID === name) {
+            console.log(name + "?" + region);
+            userScores[i].location = region;
+            userScores[i].locationTime = Date.now();
+
+            //Move
+            updateScore(userScores[i]);
+        }
+    }
 }
 
-function updateScore() {
-  return;
+function updateScore(user) {
+    user.score++;
+
+    for (var i = 0; i < userScores.length; i++) {
+        if (userScores[i].ID == user.ID) {
+            break;
+        }
+        if (userScores[i].location != user.location) {
+            // TODO
+        }
+    }
 }
 
-function demoFunc(name, region) {
-  userScores[name]++
-}

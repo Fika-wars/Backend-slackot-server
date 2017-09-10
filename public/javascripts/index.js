@@ -27,9 +27,11 @@ function post(operator) {
 }
 
 function updateHighscore(data) {
-    console.log(data);
-    $.each(data, function(val) {
-        $('#'+val).text(val + ": " + data[val]);
+//    $.each(data, function(val) {
+//        $('#'+val).text(val + ": " + data[val]);
+
+    $.each(data, function(index, obj) {
+        $('#'+obj.ID).text(obj.name + ": " + obj.score + ", Zone: " + obj.location);
     });
 }
 
