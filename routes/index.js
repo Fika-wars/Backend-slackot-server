@@ -102,6 +102,7 @@ router.post('/', function (req, res) {
     if (req.body.operator == "refresh") {
         var response = userScores;
     } else if (req.body.operator == "userUpdate") {
+        var response = userScores;
         userInRegion(req.body.userName, req.body.region);
     } else {
         res.end();
@@ -143,8 +144,8 @@ function updateScore(user) {
         if (userScores[i].ID == user.ID) {
             break;
         }
-        if (userScores[i].location != user.location) {
-            // TODO
+        if (userScores[i].location == user.location && userScores[i].teamID == user.teamID) {
+            user.score++;
         }
     }
 }
