@@ -1,0 +1,36 @@
+#mapContainer {
+    float: left;
+    width: 20em;
+    height: 20em;
+    padding-left: 20em;
+    display: inline-block;
+}
+
+#mapImage {
+    width: 30em;
+}
+
+.background {
+    background-image: linear-gradient(#DE6262, #FFB88C);
+    box-shadow: inset 0 0 100px hsla(0,0%,0%,.3);
+}
+
+.header {
+    text-align: center;
+    color: beige;
+    font-size: 5em;
+    font-family: "DIN Alternate";
+}
+
+#highscoreContainer {
+    float: right;
+    padding-right: 20em;
+    display: inline-block;
+}
+
+.highscoreList > li {
+    list-style-type: none;
+    color: azure;
+    font-size: 14pt;
+    font-family: "Calluna";
+}

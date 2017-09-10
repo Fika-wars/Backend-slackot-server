@@ -27,6 +27,7 @@ function post(operator) {
 }
 
 function updateHighscore(data) {
+    console.log(data);
     $.each(data, function(val) {
         $('#'+val).text(val + ": " + data[val]);
     });
