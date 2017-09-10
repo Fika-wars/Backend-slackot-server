@@ -1,13 +1,25 @@
 #mapContainer {
     float: left;
-    width: 20em;
+    width: 50em;
     height: 20em;
     padding-left: 0em;
     display: inline-block;
 }
 
 .mapImage {
-    width: 50em;
+    position: relative;
+    width: 100%;
+}
+
+
+#peopleInZone {
+    color: beige;
+    font-size: 100pt;
+    font-family: "DIN Alternate";
+
+    position: absolute;
+    top: 105px;
+    padding-left: 420px;
 }
 
 .background {
@@ -38,17 +50,25 @@
     font-family: "Helvetica Neue";
 }
 
-li > .teamA::before {
+li > .blue::before {
     content: "• ";
     color: rgba(84, 135, 255, 0.7);
 }
 
-li > .teamB::before {
+li > .red::before {
     content: "• ";
     color: rgba(215, 44, 44, 0.7);
 }
 
-li > .teamC::before {
+li > .green::before {
     content: "• ";
     color: rgba(42, 214, 44, 0.7);
+}
+
+/*.playerScore .playerEntry {
+    display: inline-block;
+}*/
+
+.pointText {
+    text-align: right;
 }

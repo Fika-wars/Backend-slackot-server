@@ -8,7 +8,7 @@ var userScores = [
         "score": 60,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamA'
+        "teamID": 'blue'
     },
     {
         "ID": "playerB",
@@ -16,7 +16,7 @@ var userScores = [
         "score": 42,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamA'
+        "teamID": 'blue'
     },
     {
         "ID": "playerC",
@@ -24,7 +24,7 @@ var userScores = [
         "score": 35,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamA'
+        "teamID": 'blue'
     },
     {
         "ID": "playerD",
@@ -32,7 +32,7 @@ var userScores = [
         "score": 24,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamB'
+        "teamID": 'red'
     },
     {
         "ID": "playerE",
@@ -40,7 +40,7 @@ var userScores = [
         "score": 18,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamB'
+        "teamID": 'red'
     },
     {
         "ID": "playerF",
@@ -48,7 +48,7 @@ var userScores = [
         "score": 7,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamB'
+        "teamID": 'red'
     },
     {
         "ID": "playerG",
@@ -56,7 +56,7 @@ var userScores = [
         "score": 0,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamB'
+        "teamID": 'red'
     },
     {
         "ID": "playerH",
@@ -64,7 +64,7 @@ var userScores = [
         "score": 0,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamC'
+        "teamID": 'green'
     },
     {
         "ID": "playerI",
@@ -72,7 +72,7 @@ var userScores = [
         "score": 0,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamC'
+        "teamID": 'green'
     },
     {
         "ID": "playerJ",
@@ -80,7 +80,7 @@ var userScores = [
         "score": 0,
         "location": 'None',
         "locationTime": 0,
-        "teamID": 'teamC'
+        "teamID": 'green'
     }];
 
 
@@ -134,15 +134,17 @@ function userInRegion(name, region) {
 }
 
 function updateScore(user) {
-    user.score++;
+  if (user.location != "None") {
+      user.score++;
 
-    for (var i = 0; i < userScores.length; i++) {
-        if (userScores[i].ID == user.ID) {
-            break;
-        }
-        if (userScores[i].location == user.location && userScores[i].teamID == user.teamID) {
-            user.score++;
-        }
-    }
+      for (var i = 0; i < userScores.length; i++) {
+          if (userScores[i].ID == user.ID) {
+              break;
+          }
+          if (userScores[i].location == user.location && userScores[i].teamID == user.teamID) {
+              user.score++;
+          }
+      }
+  }
 }
 

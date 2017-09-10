@@ -31,22 +31,48 @@ function updateHighscore(data) {
     });
 }
 
+function updatePeopleInZone(peopleInZone) {
+    console.log(peopleInZone);
+    $("#peopleInZone").text(peopleInZone);
+    $("#peopleInZone").attr("hidden", false);
+}
+
 function updateMap(data) {
-    peopleInZone = 0;
+    teamInZone = "no";
+    nrBlueInZone = 0;
+    nrRedInZone = 0;
+    nrGreenInZone = 0;
 
     //Count people inside zone
     $.each(data, function(index, obj) {
         console.log(obj.location);
         if (obj.location != "None") {
-            peopleInZone++
+            switch (obj.teamID) {
+                case "blue":
+                    nrBlueInZone++;
+                    teamInZone = "blue";
+                    updatePeopleInZone(nrBlueInZone);
+                    break;
+                case "red":
+                    nrRedInZone++;
+                    teamInZone = "red";
+                    updatePeopleInZone(nrRedInZone);
+                    break;
+                case "green":
+                    nrGreenInZone++;
+                    teamInZone = "green";
+                    updatePeopleInZone(nrGreenInZone);
+                    break;
+            }
         }
     });
 
-    if (peopleInZone == 1) {
-        console.log("changing image");
-        $("#BlueTeamMap").attr("hidden", false);
-        $("#NoTeamMap").attr("hidden", true);
-    }
+    $("#blueTeamMap").attr("hidden", true);
+    $("#redTeamMap").attr("hidden", true);
+    $("#greenTeamMap").attr("hidden", true);
+    $("#noTeamMap").attr("hidden", true);
+
+    $("#" + teamInZone + "TeamMap").attr("hidden", false);
 }
 
 function updateDOM(data) {
