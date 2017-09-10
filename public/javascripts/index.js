@@ -1,6 +1,6 @@
 //in milliseconds
 var refreshRate = 5000;
-var hostURL = "http://10.0.0.81:3000";
+var hostURL = "http://10.0.0.81 :3000";
 
 function buttonPress() {
     var response = $.ajax({
@@ -9,7 +9,7 @@ function buttonPress() {
         data: {
             "operator": "userUpdate",
             "userName": "playerJ",
-            "region": "A"
+            "region": "FikaRum2"
         }
     });
 
