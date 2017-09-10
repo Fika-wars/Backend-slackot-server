@@ -1,6 +1,6 @@
 //in milliseconds
 var refreshRate = 5000;
-var hostURL = "http://10.0.0.111:3000";
+var hostURL = "http://10.0.0.81:3000";
 
 function buttonPress() {
     var response = $.ajax({
