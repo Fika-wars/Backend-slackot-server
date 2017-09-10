@@ -7,7 +7,8 @@ body.background
   block content
     h1.header Geofika
     div(id="mapContainer")
-      img(id="mapImage" src="/images/Expoarena_0.png")
+      img(class="mapImage" id="NoTeamMap" src="/images/No_Team.png" hidden=false)
+      img(class="mapImage" id="BlueTeamMap" src="/images/Blue_Team.png" hidden=true)
     div(id="highscoreContainer")
       ul.highscoreList(id=highscoreList)
         li

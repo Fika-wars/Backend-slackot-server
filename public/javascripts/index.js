@@ -16,8 +16,6 @@ function buttonPress() {
     console.log(response);
 }
 
-
-
 function post(operator) {
     return $.ajax({
         type: 'POST',
@@ -27,16 +25,33 @@ function post(operator) {
 }
 
 function updateHighscore(data) {
-//    $.each(data, function(val) {
-//        $('#'+val).text(val + ": " + data[val]);
-
     $.each(data, function(index, obj) {
-        $('#'+obj.ID).text(obj.name + ": " + obj.score + ", Zone: " + obj.location);
+        $('#'+obj.ID).text(obj.name + ": " + obj.score);
+        $('#'+obj.ID).addClass(obj.teamID);
     });
+}
+
+function updateMap(data) {
+    peopleInZone = 0;
+
+    //Count people inside zone
+    $.each(data, function(index, obj) {
+        console.log(obj.location);
+        if (obj.location != "None") {
+            peopleInZone++
+        }
+    });
+
+    if (peopleInZone == 1) {
+        console.log("changing image");
+        $("#BlueTeamMap").attr("hidden", false);
+        $("#NoTeamMap").attr("hidden", true);
+    }
 }
 
 function updateDOM(data) {
     updateHighscore(data);
+    updateMap(data);
 }
 
 function postHandler(data) {

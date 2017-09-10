@@ -6,81 +6,81 @@ var userScores = [
         "ID": "playerA",
         "name": "Fabian",
         "score": 60,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'A'
+        "teamID": 'teamA'
     },
     {
         "ID": "playerB",
         "name": "Erik",
         "score": 42,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'A'
+        "teamID": 'teamA'
     },
     {
         "ID": "playerC",
         "name": "Alexander",
         "score": 35,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'A'
+        "teamID": 'teamA'
     },
     {
         "ID": "playerD",
         "name": "Charlie",
         "score": 24,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'B'
+        "teamID": 'teamB'
     },
     {
         "ID": "playerE",
         "name": "playerE",
         "score": 18,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'B'
+        "teamID": 'teamB'
     },
     {
         "ID": "playerF",
         "name": "playerF",
         "score": 7,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'B'
+        "teamID": 'teamB'
     },
     {
         "ID": "playerG",
         "name": "playerG",
         "score": 0,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'B'
+        "teamID": 'teamB'
     },
     {
         "ID": "playerH",
         "name": "playerH",
         "score": 0,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'C'
+        "teamID": 'teamC'
     },
     {
         "ID": "playerI",
         "name": "playerI",
         "score": 0,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'C'
+        "teamID": 'teamC'
     },
     {
         "ID": "playerJ",
         "name": "playerJ",
         "score": 0,
-        "location": 'Z',
+        "location": 'None',
         "locationTime": 0,
-        "teamID": 'C'
+        "teamID": 'teamC'
     }];
 
 
@@ -121,12 +121,8 @@ module.exports = router;
 function userInRegion(name, region) {
     //Multiplier logic here for more users at same spot or similar
     //updateScore(update.);
-    console.log(name + " " + region);
     for (var i = 0; i < userScores.length; i++) {
-        console.log("hej");
-        console.log(userScores[i].name + " huh " + name);
         if (userScores[i].ID === name) {
-            console.log(name + "?" + region);
             userScores[i].location = region;
             userScores[i].locationTime = Date.now();
 

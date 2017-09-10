@@ -2,13 +2,21 @@
     float: left;
     width: 20em;
     height: 20em;
-    padding-left: 20em;
+    padding-left: 0em;
     display: inline-block;
 }
 
-#mapImage {
-    width: 30em;
+.mapImage {
+    width: 50em;
 }
+/*
+#blueTeamMap {
+    display: none;
+}
+
+#NoTeamMap {
+    display: block;
+}*/
 
 .background {
     background-image: linear-gradient(#DE6262, #FFB88C);
@@ -33,4 +41,15 @@
     color: azure;
     font-size: 14pt;
     font-family: "Calluna";
+}
+/*
+li::before {
+    content: "• ";
+    color: red;
+}*/
+
+li > .teamA {
+    background: rgba(84, 135, 255, 0.7);
+    /*background-color: #00B7FF;
+    fill-opacity: 20;*/
 }
