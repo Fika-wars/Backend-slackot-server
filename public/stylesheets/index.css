@@ -9,18 +9,10 @@
 .mapImage {
     width: 50em;
 }
-/*
-#blueTeamMap {
-    display: none;
-}
-
-#NoTeamMap {
-    display: block;
-}*/
 
 .background {
     background-image: linear-gradient(#DE6262, #FFB88C);
-    box-shadow: inset 0 0 100px hsla(0,0%,0%,.3);
+    /*'*box-shadow: inset 0 0 100px hsla(0,0%,0%,.3);*/
 }
 
 .header {
@@ -32,24 +24,31 @@
 
 #highscoreContainer {
     float: right;
-    padding-right: 20em;
+    //padding-left: 1em;
+    padding-right: 2em;
+    margin-right: 14em;
     display: inline-block;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .highscoreList > li {
     list-style-type: none;
     color: azure;
     font-size: 14pt;
-    font-family: "Calluna";
+    font-family: "Helvetica Neue";
 }
-/*
-li::before {
-    content: "• ";
-    color: red;
-}*/
 
-li > .teamA {
-    background: rgba(84, 135, 255, 0.7);
-    /*background-color: #00B7FF;
-    fill-opacity: 20;*/
+li > .teamA::before {
+    content: "• ";
+    color: rgba(84, 135, 255, 0.7);
+}
+
+li > .teamB::before {
+    content: "• ";
+    color: rgba(215, 44, 44, 0.7);
+}
+
+li > .teamC::before {
+    content: "• ";
+    color: rgba(42, 214, 44, 0.7);
 }
